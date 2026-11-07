@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Bot Token:"/>
+    <EditText android:id="@+id/tokenEt"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="123456:ABC..."/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Chat ID:"
+        android:layout_marginTop="12dp"/>
+    <EditText android:id="@+id/chatIdEt"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="12345678" android:inputType="number"/>
+
+    <Button android:id="@+id/startBtn"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="فعال‌سازی"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="۱. توکن را از BotFather بگیرید\n۲. Chat ID را از @userinfobot بگیرید\n۳. دکمه را بزنید و اجازه ضبط بدهید\n۴. در بات /shot بفرستید"/>
+</LinearLayout>
