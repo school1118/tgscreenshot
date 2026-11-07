@@ -18,14 +18,8 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Generate Gradle Wrapper (Specific Version)
-        run: gradle wrapper --gradle-version 8.4
-
-      - name: Grant execute permission
-        run: chmod +x gradlew
-
-      - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+      - name: Build Debug APK with Gradle 8.4 directly
+        run: gradle-8.4 assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
