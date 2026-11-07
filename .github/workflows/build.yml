@@ -18,11 +18,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Grant execute permission
-        run: chmod +x gradlew || true
-
-      - name: Generate Gradle Wrapper
+      - name: Generate Gradle Wrapper (Specific Version)
         run: gradle wrapper --gradle-version 8.4
+
+      - name: Grant execute permission
+        run: chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
