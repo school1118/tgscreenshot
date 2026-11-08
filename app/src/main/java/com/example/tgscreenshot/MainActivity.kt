@@ -58,8 +58,12 @@ class MainActivity : AppCompatActivity() {
                 putExtra("resultCode", resultCode)
                 putExtra("resultData", data)
             }
-            if (Build.VERSION.SDK_INT >= 26) startForegroundService(svc) else startService(svc)
-            Toast.makeText(this, "سرویس فعال شد. /shot را در بات بزنید", Toast.LENGTH_LONG).show()
+            if (Build.VERSION.SDK_INT >= 26) {
+                startForegroundService(svc)
+            } else {
+                startService(svc)
+            }
+            Toast.makeText(this@MainActivity, "سرویس فعال شد. /shot را در بات بزنید", Toast.LENGTH_LONG).show()
         }
     }
 }
