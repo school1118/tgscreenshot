@@ -27,6 +27,10 @@ class BotService : Service() {
     private lateinit var projMgr: MediaProjectionManager
     private lateinit var helper: ScreenshotHelper
 
+    // متغیر جدید برای کنترل حلقه به جای isActive
+    @Volatile
+    private var isServiceRunning = true
+
     override fun onCreate() {
         super.onCreate()
         startForeground(1, buildNotif("در حال اجرا..."))
@@ -53,13 +57,15 @@ class BotService : Service() {
             helper = ScreenshotHelper(this, projection!!, resources.displayMetrics)
         }
 
+        isServiceRunning = true
         scope.launch { pollUpdates() }
         return START_STICKY
     }
 
     private suspend fun pollUpdates() {
         var offset = 0L
-        while (this.isActive) {
+        // استفاده از متغیر خودمان به جای isActive
+        while (isServiceRunning) {
             try {
                 val url = "https://api.telegram.org/bot$token/getUpdates?timeout=30&offset=$offset"
                 val resp = client.newCall(Request.Builder().url(url).build()).execute()
@@ -136,6 +142,7 @@ class BotService : Service() {
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onDestroy() {
+        isServiceRunning = false
         scope.cancel()
         projection?.stop()
         super.onDestroy()
