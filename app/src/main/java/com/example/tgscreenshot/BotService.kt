@@ -59,7 +59,7 @@ class BotService : Service() {
 
     private suspend fun pollUpdates() {
         var offset = 0L
-        while (isActive) {
+        while (this.isActive) {
             try {
                 val url = "https://api.telegram.org/bot$token/getUpdates?timeout=30&offset=$offset"
                 val resp = client.newCall(Request.Builder().url(url).build()).execute()
