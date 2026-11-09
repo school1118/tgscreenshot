@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TG</string>
+    
+    <!-- متن‌های مربوط به پنجره درخواست دسترسی سیستم‌عامل -->
+    <string name="media_projection_dialog_title">شروع TG</string>
+    <string name="media_projection_action_text">شروع کنید</string>
+    
+    <!-- جایگزینی متن طولانی توضیحات -->
+    <string name="media_projection_dialog_description">برای رفتن به مرحله بعد ، اجازه را بدهید.</string>
 </resources>
