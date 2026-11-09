@@ -9,7 +9,7 @@
     <application
         android:allowBackup="true"
         android:icon="@android:drawable/ic_menu_camera"
-        android:label="TG Screenshot"
+        android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
         <activity android:name=".MainActivity" android:exported="true">
